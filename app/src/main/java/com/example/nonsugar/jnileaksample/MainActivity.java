@@ -17,13 +17,8 @@ public class MainActivity extends AppCompatActivity {
         // Javaのワーカースレッドを起動
         Receiver.startReceiverThread();
 
-        // ネイティブのワーカスレッドを起動
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                startNativeThread();
-            }
-        }).start();
+        // JavaのBigObject送信スレッドを起動
+        Receiver.starSenderThread();
     }
 
     public native void startNativeThread();
